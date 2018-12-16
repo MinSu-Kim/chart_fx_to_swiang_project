@@ -1,0 +1,30 @@
+plugins {
+    id 'java'
+    id 'application'
+}
+
+tasks.withType(JavaCompile){
+    options.encoding = 'UTF-8'
+}
+
+dependencies {
+    testImplementation 'junit:junit:4.12'
+}
+
+repositories {
+    jcenter()
+}
+
+
+
+jar {
+	version = 1.0
+	baseName= 'JavaSwing_FxChart'
+	appendix = 'bin'
+	mainClassName = 'chart_project.Main'
+	
+	manifest{
+		attributes 'Title': baseName, 'Version': version, 'Main-Class': mainClassName
+	}
+	dependsOn configurations.runtime// 실행 가능한jar 파일설정
+}
