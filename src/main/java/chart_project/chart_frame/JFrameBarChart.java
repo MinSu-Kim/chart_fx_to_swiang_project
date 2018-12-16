@@ -4,7 +4,6 @@ import java.awt.BorderLayout;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
-import javax.swing.SwingUtilities;
 
 import chart_project.dto.Student;
 import javafx.application.Platform;
@@ -22,7 +21,7 @@ public class JFrameBarChart {
 
 	private static BarChart<String, Number> barChart;
 
-	private static void initAndShowGUI() {
+	public static void initAndShowGUI() {
 		JFrame frame = new JFrame("Swing and JavaFX");
 		frame.setSize(500, 400);
 		
@@ -30,7 +29,7 @@ public class JFrameBarChart {
 
 		frame.add(fxPanel);
 		frame.setVisible(true);
-		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 
 		JButton btnAdd = new JButton("추가");
 		btnAdd.addActionListener(new java.awt.event.ActionListener() {
@@ -85,15 +84,6 @@ public class JFrameBarChart {
 		dataSeries.getData().add(new XYChart.Data<>("영어", std.getEngScore()));
 		dataSeries.getData().add(new XYChart.Data<>("수학", std.getMathScore()));
 		return dataSeries;
-	}
-
-	public static void main(String[] args) {
-		SwingUtilities.invokeLater(new Runnable() {
-			@Override
-			public void run() {
-				initAndShowGUI();
-			}
-		});
 	}
 	
 }

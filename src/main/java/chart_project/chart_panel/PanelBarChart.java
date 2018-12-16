@@ -18,6 +18,8 @@ import javafx.scene.paint.Color;
 
 @SuppressWarnings("serial")
 public class PanelBarChart extends JFXPanel implements InitScene{
+	public PanelBarChart() {
+	}
 
 	private BarChart<String, Number> barChart;
 	
@@ -70,7 +72,6 @@ public class PanelBarChart extends JFXPanel implements InitScene{
 				s.getData().set(0, new XYChart.Data<>("국어", std.getKorScore()));
 				s.getData().set(1, new XYChart.Data<>("영어", std.getEngScore()));
 				s.getData().set(2, new XYChart.Data<>("수학", std.getMathScore()));	
-				barChart.getData().set(i, s);
 				break;
 			}
 		}
@@ -82,7 +83,6 @@ public class PanelBarChart extends JFXPanel implements InitScene{
 		addSeries.getData().add(new XYChart.Data<>("국어", std.getKorScore()));
 		addSeries.getData().add(new XYChart.Data<>("영어", std.getEngScore()));
 		addSeries.getData().add(new XYChart.Data<>("수학", std.getMathScore()));
-		System.out.println(addSeries);
 		barChart.getData().add(addSeries);
 	}
 	
@@ -121,9 +121,4 @@ public class PanelBarChart extends JFXPanel implements InitScene{
 		return list;
 	}
 
-	public BarChart<String, Number> getBarChart() {
-		return barChart;
-	}
-
-	
 }

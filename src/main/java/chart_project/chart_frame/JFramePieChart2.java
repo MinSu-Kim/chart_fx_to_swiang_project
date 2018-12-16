@@ -5,7 +5,6 @@ import java.util.Optional;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
-import javax.swing.SwingUtilities;
 
 import javafx.application.Platform;
 import javafx.collections.FXCollections;
@@ -22,14 +21,14 @@ import javafx.scene.text.Text;
 public class JFramePieChart2 {
 	private static PieChart pieChart;
 
-	private static void initAndShowGUI() {
+	public static void initAndShowGUI() {
 		JFrame frame = new JFrame("Swing and JavaFX");
 		frame.setSize(600, 700);
 		final JFXPanel fxPanel = new JFXPanel();
 
 		frame.add(fxPanel, BorderLayout.CENTER);
 		frame.setVisible(true);
-		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 
 		JButton btnAdd = new JButton("추가");
 		btnAdd.addActionListener(new java.awt.event.ActionListener() {
@@ -97,12 +96,4 @@ public class JFramePieChart2 {
 		return answer;
 	}
 
-	public static void main(String[] args) {
-		SwingUtilities.invokeLater(new Runnable() {
-			@Override
-			public void run() {
-				initAndShowGUI();
-			}
-		});
-	}
 }

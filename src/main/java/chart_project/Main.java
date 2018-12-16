@@ -29,6 +29,8 @@ public class Main extends JFrame implements ActionListener {
 	private JButton btnAllClear;
 	private JButton btnClearAfterAdd;
 	private PanelPieChart pPieChart;
+	private PanelLineChart pLineChart;
+	private JButton btnLineAdd;
 
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
@@ -36,6 +38,10 @@ public class Main extends JFrame implements ActionListener {
 				try {
 					Main frame = new Main();
 					frame.setVisible(true);
+					
+//					JFrameBarChart.initAndShowGUI();
+//					JFramePieChart.initAndShowGUI();
+//					JFramePieChart2.initAndShowGUI();
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
@@ -50,7 +56,7 @@ public class Main extends JFrame implements ActionListener {
 	private void initComponents() {
 		setTitle("Chart 예제");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 500, 880);  // (250+30) * 3 + 40
+		setBounds(100, 50, 520, 980);  // (250+30) * 3 + 40
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
@@ -62,7 +68,7 @@ public class Main extends JFrame implements ActionListener {
 		pPieChart = new PanelPieChart();
 		contentPane.add(pPieChart);
 		
-		PanelLineChart pLineChart = new PanelLineChart();
+		pLineChart = new PanelLineChart();
 		contentPane.add(pLineChart);
 		
 		Platform.runLater(() -> initFX(pBarChart));
@@ -91,6 +97,10 @@ public class Main extends JFrame implements ActionListener {
 		btnClearAfterAdd = new JButton("삭제후추가");
 		btnClearAfterAdd.addActionListener(this);
 		pBtn.add(btnClearAfterAdd);
+		
+		btnLineAdd = new JButton("라인항목추가");
+		btnLineAdd.addActionListener(this);
+		pBtn.add(btnLineAdd);
 	}
 	
 	public void initFX(InitScene fxPanel) {
@@ -105,11 +115,15 @@ public class Main extends JFrame implements ActionListener {
 			Platform.runLater(() -> {
 				pBarChart.addChartData(new Student("S003", "이유영", 80, 70, 60));
 				pPieChart.addChartData("Python", 10);
+				pLineChart.addChartData(new Student("S003", "이유영", 80, 70, 60));
 			});
 		}
 	}
 	
 	public void actionPerformed(ActionEvent e) {
+/*		if (e.getSource() == btnLineAdd) {
+			do_btnLineAdd_actionPerformed(e);
+		}*/
 		if (e.getSource() == btnClearAfterAdd) {
 			do_btnClearAfterAdd_actionPerformed(e);
 		}
@@ -128,12 +142,14 @@ public class Main extends JFrame implements ActionListener {
 		Platform.runLater(() -> {
 			pBarChart.delChartData(new Student("S003", "이유영", 80, 70, 60));
 			pPieChart.delChartData("Python");
+			pLineChart.delChartData(new Student("S003", "이유영", 80, 70, 60));
 		});
 	}
 	
 	protected void do_btnUpdate_actionPerformed(ActionEvent e) {
 		Platform.runLater(() -> {
 			pBarChart.updateChartData(new Student("S003", "이유영", 10, 15, 5));
+			pLineChart.updateChartData(new Student("S003", "이유영", 10, 15, 5));
 			pPieChart.updateChartData("Python", 40);
 		});
 	}
@@ -142,6 +158,7 @@ public class Main extends JFrame implements ActionListener {
 		Platform.runLater(() -> {
 			pBarChart.deleteAllData();
 			pPieChart.deleteAllData();
+			pLineChart.deleteAllData();
 		});
 	}
 	
@@ -152,6 +169,15 @@ public class Main extends JFrame implements ActionListener {
 			
 			pPieChart.deleteAllData();
 			pPieChart.addAllChartData();
+			
+			pLineChart.deleteAllData();
+			pLineChart.addAllChartData();
 		});
 	}
+	
+/*	protected void do_btnLineAdd_actionPerformed(ActionEvent e) {
+		Platform.runLater(() -> {
+			pLineChart.addSeries("포트폴리오" , 99, 77);
+		});
+	}*/
 }

@@ -32,12 +32,7 @@ public class PanelPieChart extends JFXPanel implements InitScene{
 		pieChart.setClockwise(true); 		// 시계방향 배치여부
 		pieChart.setLabelsVisible(true);	// 레이블 표시여부
 		
-		
-/*		for(Data d : pieChart.getData()) {
-			System.out.println(d.nameProperty() + "--" + d.getName());
-		}*/
-		
-		
+				
 //		pieChart.getData().forEach(data -> data.nameProperty().bind(Bindings.concat(data.getName(), " ", data.pieValueProperty(), " %")));
 		for(Data d : pieChart.getData()) {
 			d.nameProperty().bind(Bindings.concat(d.getName(), " ", d.pieValueProperty(), " %"));
@@ -74,14 +69,12 @@ public class PanelPieChart extends JFXPanel implements InitScene{
 	
 	public void updateChartData(String title, int count) {
 		ObservableList<Data> list =  pieChart.getData();
-		Data newData = new PieChart.Data(title, count);
 		
 		for(int i = 0; i<list.size(); i++) {
 			Data s = list.get(i);
 			String[] strD = s.getName().split(" ");
 			if (strD[0].equals(title)) {
-				pieChart.getData().set(i, newData);
-				newData.nameProperty().bind(Bindings.concat(newData.getName(), " ", newData.pieValueProperty(), " %"));
+				s.setPieValue(count);
 				break;
 			}
 		}
