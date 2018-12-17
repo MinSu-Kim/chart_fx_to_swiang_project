@@ -119,15 +119,15 @@ public class PanelLineChart extends JFXPanel implements InitScene{
 		}
 	}
 
-/*	public void addSeries(String subj, int...score) {
+	public void addSeries(String subj, int...score) {
+		xAxis.setAutoRanging(false); 
+		ObservableList<String> cList = xAxis.getCategories();
+		cList.add(subj);
+				
 		ObservableList<Series<String, Number>> list = lineChart.getData();
 		for(int i=0; i<list.size(); i++) {
 			Series<String, Number> s = list.get(i);
 			s.getData().add(new XYChart.Data<>(subj, score[i]));
 		}
-		
-		ObservableList<String> cList = xAxis.getCategories();
-		cList.add(subj);
-		
-	}*/
+	}
 }

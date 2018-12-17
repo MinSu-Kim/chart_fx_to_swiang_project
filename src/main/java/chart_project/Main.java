@@ -121,9 +121,9 @@ public class Main extends JFrame implements ActionListener {
 	}
 	
 	public void actionPerformed(ActionEvent e) {
-/*		if (e.getSource() == btnLineAdd) {
+		if (e.getSource() == btnLineAdd) {
 			do_btnLineAdd_actionPerformed(e);
-		}*/
+		}
 		if (e.getSource() == btnClearAfterAdd) {
 			do_btnClearAfterAdd_actionPerformed(e);
 		}
@@ -175,9 +175,9 @@ public class Main extends JFrame implements ActionListener {
 		});
 	}
 	
-/*	protected void do_btnLineAdd_actionPerformed(ActionEvent e) {
+	protected void do_btnLineAdd_actionPerformed(ActionEvent e) {
 		Platform.runLater(() -> {
 			pLineChart.addSeries("포트폴리오" , 99, 77);
 		});
-	}*/
+	}
 }
