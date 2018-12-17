@@ -78,12 +78,7 @@ public class PanelBarChart extends JFXPanel implements InitScene{
 	}
 	
 	public void addChartData(Student std) {
-		XYChart.Series<String, Number> addSeries = new Series<String, Number>();
-		addSeries.setName(std.getStdName());
-		addSeries.getData().add(new XYChart.Data<>("국어", std.getKorScore()));
-		addSeries.getData().add(new XYChart.Data<>("영어", std.getEngScore()));
-		addSeries.getData().add(new XYChart.Data<>("수학", std.getMathScore()));
-		barChart.getData().add(addSeries);
+		barChart.getData().add(getChartData(std));
 	}
 	
 	public void addAllChartData() {
@@ -102,21 +97,10 @@ public class PanelBarChart extends JFXPanel implements InitScene{
 	private ObservableList<XYChart.Series<String, Number>> getChartData() {
 		ObservableList<XYChart.Series<String, Number>> list = FXCollections.observableArrayList();
 		Student std = new Student("S001", "현빈", 90, 60,70);
-		XYChart.Series<String, Number> dataSeries = new Series<String, Number>();
-		dataSeries.setName(std.getStdName());
-		dataSeries.getData().add(new XYChart.Data<>("국어", std.getKorScore()));
-		dataSeries.getData().add(new XYChart.Data<>("영어", std.getEngScore()));
-		dataSeries.getData().add(new XYChart.Data<>("수학", std.getMathScore()));
-		list.add(dataSeries);
-		
 		Student std2 = new Student("S002", "박신혜", 60, 55,88);
-		XYChart.Series<String, Number> dataSeries2 = new Series<String, Number>();
-		dataSeries2.setName(std2.getStdName());
-		dataSeries2.getData().add(new XYChart.Data<>("국어", std2.getKorScore()));
-		dataSeries2.getData().add(new XYChart.Data<>("영어", std2.getEngScore()));
-		dataSeries2.getData().add(new XYChart.Data<>("수학", std2.getMathScore()));
 		
-		list.add(dataSeries2);
+		list.add(getChartData(std));
+		list.add(getChartData(std2));
 		
 		return list;
 	}
