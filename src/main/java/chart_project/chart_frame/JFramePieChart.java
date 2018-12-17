@@ -21,7 +21,7 @@ public class JFramePieChart {
 
 	public static void initAndShowGUI() {
 		JFrame frame = new JFrame("Swing and JavaFX");
-		frame.setSize(500, 600);
+		frame.setBounds(620, 450, 500, 600);
 		final JFXPanel fxPanel = new JFXPanel();
 
 		frame.add(fxPanel, BorderLayout.CENTER);

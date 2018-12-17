@@ -23,7 +23,7 @@ public class JFrameBarChart {
 
 	public static void initAndShowGUI() {
 		JFrame frame = new JFrame("Swing and JavaFX");
-		frame.setSize(500, 400);
+		frame.setBounds(620, 50, 500, 400);
 		
 		final JFXPanel fxPanel = new JFXPanel();
 

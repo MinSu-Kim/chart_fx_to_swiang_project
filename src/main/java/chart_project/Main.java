@@ -11,6 +11,9 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
+import chart_project.chart_frame.JFrameBarChart;
+import chart_project.chart_frame.JFramePieChart;
+import chart_project.chart_frame.JFramePieChart2;
 import chart_project.chart_panel.PanelBarChart;
 import chart_project.chart_panel.PanelLineChart;
 import chart_project.chart_panel.PanelPieChart;
@@ -39,9 +42,9 @@ public class Main extends JFrame implements ActionListener {
 					Main frame = new Main();
 					frame.setVisible(true);
 					
-//					JFrameBarChart.initAndShowGUI();
-//					JFramePieChart.initAndShowGUI();
-//					JFramePieChart2.initAndShowGUI();
+					JFrameBarChart.initAndShowGUI();
+					JFramePieChart.initAndShowGUI();
+					JFramePieChart2.initAndShowGUI();
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
