@@ -18,8 +18,6 @@ import javafx.scene.paint.Color;
 
 @SuppressWarnings("serial")
 public class PanelBarChart extends JFXPanel implements InitScene{
-	public PanelBarChart() {
-	}
 
 	private BarChart<String, Number> barChart;
 	
@@ -47,10 +45,16 @@ public class PanelBarChart extends JFXPanel implements InitScene{
 		return scene;
 	}
 	
+	/**
+	 * 전체 데이터 삭제
+	 */
 	public void deleteAllData() {
 		barChart.getData().clear();
 	}
 	
+	/** 해당 학생의 삭제
+	 * @param std
+	 */
 	public void delChartData(Student std) {
 		ObservableList<Series<String, Number>> list = barChart.getData();
 		Iterator<Series<String, Number>>  it = list.iterator();
@@ -63,6 +67,10 @@ public class PanelBarChart extends JFXPanel implements InitScene{
 		}
 	}
 	
+	/**
+	 * 해당 학생 정보 갱신
+	 * @param std
+	 */
 	public void updateChartData(Student std) {
 		ObservableList<Series<String, Number>> list = barChart.getData();
 		
@@ -77,14 +85,24 @@ public class PanelBarChart extends JFXPanel implements InitScene{
 		}
 	}
 	
+	/** getChartData() 를 이용하여 학생정보추가
+	 * @param std
+	 */
 	public void addChartData(Student std) {
 		barChart.getData().add(getChartData(std));
 	}
 	
+	/**
+	 * getChartData()에 의해 모든 데이터 추가
+	 */
 	public void addAllChartData() {
 		barChart.setData(getChartData());
 	}
 	
+	/**
+	 * @param std
+	 * @return
+	 */
 	public XYChart.Series<String, Number> getChartData(Student std) {
 		XYChart.Series<String, Number> dataSeries = new Series<String, Number>();
 		dataSeries.setName(std.getStdName());
