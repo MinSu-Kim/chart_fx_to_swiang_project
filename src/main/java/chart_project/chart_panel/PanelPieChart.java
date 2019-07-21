@@ -1,6 +1,5 @@
 package chart_project.chart_panel;
 
-import chart_project.InitScene;
 import javafx.beans.binding.Bindings;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;

@@ -1,4 +1,4 @@
-package chart_project;
+package chart_project.chart_panel;
 
 import javafx.scene.Scene;
 

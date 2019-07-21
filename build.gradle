@@ -1,13 +1,22 @@
 plugins {
-    id 'java'
+	id 'java'
     id 'application'
+	id 'eclipse'
 }
 
 tasks.withType(JavaCompile){
     options.encoding = 'UTF-8'
 }
 
+
 dependencies {
+	// https://mvnrepository.com/artifact/org.openjfx/javafx-controls
+//	compile group: 'org.openjfx', name: 'javafx-controls', version: '11.0.2'
+//	compile group: 'org.openjfx', name: 'javafx-fxml', version: '11.0.2'
+//	compile group: 'org.openjfx', name: 'javafx-base', version: '11.0.2'
+	// https://mvnrepository.com/artifact/org.openjfx/javafx-swing
+//	compile group: 'org.openjfx', name: 'javafx-swing', version: '11.0.2'
+	
     testImplementation 'junit:junit:4.12'
 }
 
@@ -15,16 +24,17 @@ repositories {
     jcenter()
 }
 
-
+mainClassName = 'chart_project.Main'
 
 jar {
 	version = 1.0
-	baseName= 'JavaSwing_FxChart'
+	baseName= 'CoffeeApplication'
 	appendix = 'bin'
-	mainClassName = 'chart_project.Main'
-	
 	manifest{
 		attributes 'Title': baseName, 'Version': version, 'Main-Class': mainClassName
 	}
-	dependsOn configurations.runtime// 실행 가능한jar 파일설정
+	from {
+        configurations.compileClasspath.collect { it.isDirectory() ? it : zipTree(it) }
+    }
+	dependsOn configurations.runtime
 }

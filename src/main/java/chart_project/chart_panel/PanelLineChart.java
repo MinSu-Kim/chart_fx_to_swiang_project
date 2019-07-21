@@ -2,7 +2,6 @@ package chart_project.chart_panel;
 
 import java.util.Iterator;
 
-import chart_project.InitScene;
 import chart_project.dto.Student;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;

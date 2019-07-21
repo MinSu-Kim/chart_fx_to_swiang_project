@@ -15,6 +15,7 @@ import chart_project.chart_frame.JFrameBarChart;
 import chart_project.chart_frame.JFrameLineChart;
 import chart_project.chart_frame.JFramePieChart;
 import chart_project.chart_frame.JFramePieChart2;
+import chart_project.chart_panel.InitScene;
 import chart_project.chart_panel.PanelBarChart;
 import chart_project.chart_panel.PanelLineChart;
 import chart_project.chart_panel.PanelPieChart;

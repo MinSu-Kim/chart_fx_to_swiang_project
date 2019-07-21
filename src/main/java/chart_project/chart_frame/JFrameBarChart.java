@@ -1,6 +1,8 @@
 package chart_project.chart_frame;
 
 import java.awt.BorderLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -32,10 +34,10 @@ public class JFrameBarChart {
 		frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 
 		JButton btnAdd = new JButton("추가");
-		btnAdd.addActionListener(new java.awt.event.ActionListener() {
+		btnAdd.addActionListener(new ActionListener() {
 			@Override
-			public void actionPerformed(java.awt.event.ActionEvent e) {
-				// JavaFX 데이터를 변경해야 할 때마다 코드를 Runnable 객체로 래핑 Platform.runLater하고 예제 3-2 에서와 같이
+			public void actionPerformed(ActionEvent e) {
+				// JavaFX 데이터를 변경해야 할 때마다 코드를 Runnable 객체로 래핑 Platform.runLater하고 
 				// 메소드를 호출
 				Platform.runLater(() -> {
 					XYChart.Series<String, Number> datas = getBarChartData(new Student("S002", "김주하", 80, 70, 60));

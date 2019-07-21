@@ -2,7 +2,6 @@ package chart_project.chart_panel;
 
 import java.util.Iterator;
 
-import chart_project.InitScene;
 import chart_project.dto.Student;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -18,6 +17,8 @@ import javafx.scene.paint.Color;
 
 @SuppressWarnings("serial")
 public class PanelBarChart extends JFXPanel implements InitScene{
+	public PanelBarChart() {
+	}
 
 	private BarChart<String, Number> barChart;
 	
@@ -67,6 +68,7 @@ public class PanelBarChart extends JFXPanel implements InitScene{
 		}
 	}
 	
+
 	/**
 	 * 해당 학생 정보 갱신
 	 * @param std
