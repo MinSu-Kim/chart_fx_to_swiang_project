@@ -71,12 +71,35 @@ public class Student {
 		return getSum() / 3D;
 	}
 
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((stdNo == null) ? 0 : stdNo.hashCode());
+		return result;
+	}
 
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Student other = (Student) obj;
+		if (stdNo == null) {
+			if (other.stdNo != null)
+				return false;
+		} else if (!stdNo.equals(other.stdNo))
+			return false;
+		return true;
+	}
 
 	@Override
 	public String toString() {
-		return String.format("Student [%s %s %s %s %s %s %6.2f]", stdNo, stdName, korScore, engScore, mathScore, getSum(),
-				getAvg());
+		return String.format("Student [%s %s %s %s %s %s %6.2f]", stdNo, stdName, korScore, engScore, mathScore,
+				getSum(), getAvg());
 	}
 
 }

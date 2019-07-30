@@ -57,6 +57,10 @@ public class PanelBarChart extends JFXPanel implements InitScene{
 	 */
 	public void delChartData(Student std) {
 		ObservableList<Series<String, Number>> list = barChart.getData();
+		for(Series<String, Number> series : list) {
+			System.out.println(series.equals(std));
+		}
+		
 		Iterator<Series<String, Number>>  it = list.iterator();
 		while(it.hasNext()) {
 			Series<String, Number> s = it.next();
